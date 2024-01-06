@@ -16,7 +16,37 @@ namespace EventManagement
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
-    {
+            {
+                // Define your SQL query with a JOIN clause
+                string query = @"
+
+                    SELECT Events.EventID, Users.fullname AS FullName, Events.Description, Events.Date, Events.Time, Events.Location, Events.Capacity
+                    FROM Events
+                    INNER JOIN Users ON Events.OrganizerID = Users.UserID
+
+
+                ";
+
+                // Create a SqlConnection and SqlDataAdapter to execute the query
+
+                conn.Open();
+                SqlDataAdapter adapter = new SqlDataAdapter(query, conn);
+
+                // Create a DataSet to hold the result
+                DataSet dataSet = new DataSet();
+
+                // Fill the DataSet with data from the query
+                adapter.Fill(dataSet);
+
+                // Bind the result to your GridView
+                GridView1.DataSource = dataSet.Tables[0]; // Replace GridView1 with your actual GridView ID
+                GridView1.DataBind(); // Replace GridView1 with your actual GridView ID
+                conn.Close();
+
+            }
+
+            if (!IsPostBack)
+            {
         // Fetch the data from the "Users" table
         string query = "SELECT UserID, fullname FROM Users"; // Query to fetch user data
 
@@ -36,7 +66,7 @@ namespace EventManagement
 
         // Add an initial item (optional)
         ddlorganizer.Items.Insert(0, new ListItem("Select Organizer", ""));
-    }
+            }
 
         }
 
@@ -77,8 +107,8 @@ namespace EventManagement
 
                 lblinfo.Text = "Event is saved";
                 conn.Close();
-            
-            
+
+                GridView1.DataBind();
         }
 
         protected void btnsearch_Click(object sender, EventArgs e)
@@ -109,6 +139,7 @@ namespace EventManagement
                         ddlorganizer.SelectedValue = reader["OrganizerID"].ToString();
 
                         lblinfo.Text = "Event found and form filled.";
+
                     }
                     else
                     {
@@ -128,9 +159,56 @@ namespace EventManagement
             else
             {
                 lblinfo.Text = "Please enter a valid Event ID.";
+                
+                
             }
             
 
+        }
+
+        protected void btnupdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Ensure you have a valid event ID from txtEventID TextBox
+                if (int.TryParse(txtEventID.Text, out int eventID))
+                {
+                    conn.Open();
+                    string sqlquery = "UPDATE Events SET Title = @Title, Description = @Description, Date = @Date, Time = @Time, Location = @Location, Capacity = @Capacity WHERE EventID = @EventID";
+                    SqlCommand cmd = new SqlCommand(sqlquery, conn);
+                    cmd.Parameters.AddWithValue("@EventID", eventID);
+                    cmd.Parameters.AddWithValue("@Title", txtEventTitle.Text);
+                    cmd.Parameters.AddWithValue("@Description", txtdescription.Value); // Assuming txtdescription is the ID of your TextArea
+                    cmd.Parameters.AddWithValue("@Date", txtdate.Text);
+                    cmd.Parameters.AddWithValue("@Time", ddlEventTime.SelectedValue); // Assuming ddlEventTime is the ID of your DropDownList
+                    cmd.Parameters.AddWithValue("@Location", txtlocation.Text);
+                    cmd.Parameters.AddWithValue("@Capacity", txtcapacity.Text);
+                    cmd.Parameters.AddWithValue("@OrganizerID", ddlorganizer.SelectedValue); // Assuming ddlorganizer is the ID of your DropDownList for Organizer
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        lblinfo.Text = "Event updated successfully";
+                    }
+                    else
+                    {
+                        lblinfo.Text = "Event not found or update failed";
+                    }
+
+                    conn.Close();
+                }
+                else
+                {
+                    lblinfo.Text = "Invalid Event ID";
+                }
+            }
+            catch (Exception ex)
+            {
+                lblinfo.Text = "Error: " + ex.Message;
+            }
+
+            GridView1.DataBind();
         }
     }
 }

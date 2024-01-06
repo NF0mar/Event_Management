@@ -78,6 +78,9 @@
                         <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
                             <a href="Orders.aspx" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Orders</span></a>
                         </li>
+                        <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
+                            <a href="Payments.aspx" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Payments</span></a>
+                        </li>
 
 
                         <li class="nav-item pcoded-menu-caption">
@@ -227,8 +230,8 @@
                             <div class="page-wrapper">
                                 <!-- [ Main Content ] start -->
                                 <div class="row">
-                                    <div class="col-3"></div>
-                                    <div class="col-md-6">
+                                    <div class="col-2"></div>
+                                    <div class="col-md-8">
                                         <div class="card">
                                             <div class="card-header">
                                                 <h5>Sessions Registration</h5>
@@ -257,7 +260,7 @@
 
                                                             <div class="form-group">
                                                                 <label for="exampleInputPassword1">Description</label>
-                                                                <textarea class="form-control" id="txtdescription" placeholder="Session Desricption...." rows="3"></textarea>
+                                                                <textarea class="form-control" id="txtdescription" placeholder="Session Desricption...." rows="3" runat="server"></textarea>
                                                             </div>
 
                                                             <div class="form-group">
@@ -268,25 +271,37 @@
                                                                 <asp:TextBox ID="txtEndTime" class="form-control" runat="server" TextMode="Time"></asp:TextBox>
                                                             </div>
 
-                                                            <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1"
-                                                                ControlToValidate="txtStartTime"
-                                                                ErrorMessage="Please enter a start time."
-                                                                runat="server">
-                                                            </asp:RequiredFieldValidator>
+                                                            <div class="form-group">
+                                                                <asp:Label ID="lblinfo" runat="server" Text=""></asp:Label>
+                                                            </div>
 
-                                                            <asp:RangeValidator ID="StartTimeRangeValidator"
-                                                                ControlToValidate="txtStartTime"
-                                                                MinimumValue="00:00"
-                                                                MaximumValue="23:59"
-                                                                Type="Time"
-                                                                ErrorMessage="Start time must be between 00:00 and 23:59."
-                                                                runat="server">
-                                                            </asp:RangeValidator>--%>
+                                                            <div class="input-group mb-3 ">
+                                                                <asp:TextBox ID="txtSessionID" class="form-control" placeholder="Search" runat="server"></asp:TextBox>
+                                                                <div class="input-group-append">
+                                                                    <asp:Button ID="btnsearch"   class="btn btn-primary shadow-2 " formnovalidate="" runat="server" Text="Search" OnClick="btnsearch_Click"/>
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group pl-3">
+                                                                <asp:Button ID="btnregister" class="btn btn-primary shadow-2 " runat="server" Text="Register" OnClick="btnregister_Click" />
+                                                                <asp:Button ID="btnupdate" class="btn btn-success shadow-2 " runat="server" Text="Update" OnClick="btnupdate_Click" />
+                                                                <asp:Button ID="btndelete" class="btn btn-danger shadow-2 " formnovalidate="" runat="server" Text="Delete" />
+                                                                <%--<asp:Button ID="btnclear" class="btn btn-warning shadow-2 " formnovalidate="" runat="server" Text="Clear" OnClick="btnclear_Click"/>--%>
+                                                            </div>
 
 
-                                                            <asp:Button ID="btnregister" class="btn btn-primary shadow-2 " runat="server" Text="Register" />
-                                                            <asp:Button ID="btnupdate" class="btn btn-success shadow-2 " runat="server" Text="Update" />
-                                                            <asp:Button ID="btndelete" class="btn btn-danger shadow-2 " formnovalidate="" runat="server" Text="Delete" />
+                                                            <asp:GridView ID="GridView1" CssClass="table table-bordered table-condensed table-striped table-hover table-responsive table-sm  " runat="server" AutoGenerateColumns="False">
+                                                                <Columns>
+                                                                    <asp:BoundField DataField="SessionID" HeaderText="Session ID" />
+                                                                    <asp:BoundField DataField="EventTitle" HeaderText="Event Title" />
+                                                                    <asp:BoundField DataField="SpeakerName" HeaderText="Speaker Name" />
+                                                                    <asp:BoundField DataField="SessionTitle" HeaderText="Session Title" />
+                                                                    <asp:BoundField DataField="Description" HeaderText="Description" />
+                                                                    <asp:BoundField DataField="StartTime" HeaderText="Start Time" />
+                                                                    <asp:BoundField DataField="EndTime" HeaderText="End Time" />
+                                                                </Columns>
+                                                            </asp:GridView>
+
                                                         </form>
 
                                                     </div>

@@ -136,13 +136,19 @@
     <Content Include="assets\plugins\jquery-scrollbar\js\jquery.scrollbar.min.js" />
     <Content Include="assets\plugins\jquery-ui\js\jquery-ui.js" />
     <Content Include="assets\plugins\jquery\js\jquery.min.js" />
+    <Content Include="auth-reset-password.html" />
+    <Content Include="auth-signin.html" />
+    <Content Include="auth-signup.html" />
     <Content Include="Events.aspx" />
     <Content Include="form_elements.html" />
     <Content Include="index.aspx" />
+    <Content Include="Reset-Password.aspx" />
+    <Content Include="Signin.aspx" />
     <Content Include="Orders.aspx" />
     <Content Include="Payments.aspx" />
     <Content Include="Reviews.aspx" />
     <Content Include="Sessions.aspx" />
+    <Content Include="Signup.aspx" />
     <Content Include="Speakers.aspx" />
     <Content Include="Sponsors.aspx" />
     <Content Include="Tickets.aspx" />
@@ -163,6 +169,20 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Reset-Password.aspx.cs">
+      <DependentUpon>Reset-Password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reset-Password.aspx.designer.cs">
+      <DependentUpon>Reset-Password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Signin.aspx.cs">
+      <DependentUpon>Signin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Signin.aspx.designer.cs">
+      <DependentUpon>Signin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Orders.aspx.cs">
       <DependentUpon>Orders.aspx</DependentUpon>
@@ -192,6 +212,13 @@
     </Compile>
     <Compile Include="Sessions.aspx.designer.cs">
       <DependentUpon>Sessions.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Signup.aspx.cs">
+      <DependentUpon>Signup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Signup.aspx.designer.cs">
+      <DependentUpon>Signup.aspx</DependentUpon>
     </Compile>
     <Compile Include="Speakers.aspx.cs">
       <DependentUpon>Speakers.aspx</DependentUpon>

@@ -78,6 +78,9 @@
                         <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
                             <a href="Orders.aspx" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Orders</span></a>
                         </li>
+                        <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
+                            <a href="Payments.aspx" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Payments</span></a>
+                        </li>
 
                         <li class="nav-item pcoded-menu-caption">
                             <label>Pages</label>
@@ -226,8 +229,8 @@
                             <div class="page-wrapper">
                                 <!-- [ Main Content ] start -->
                                 <div class="row">
-                                    <div class="col-3"></div>
-                                    <div class="col-md-6">
+                                    <div class="col-2"></div>
+                                    <div class="col-md-8">
                                         <div class="card">
                                             <div class="card-header">
                                                 <h5>Reviews</h5>
@@ -252,19 +255,43 @@
 
                                                             <div class="form-group">
                                                                 <label for="exampleInputPassword1">Comment</label>
-                                                                <textarea class="form-control" id="txtbio" placeholder="Write your Oppinion...." rows="3"></textarea>
+                                                                <textarea class="form-control" id="txtcomment" placeholder="Write your Oppinion...." rows="3" runat="server"></textarea>
                                                             </div>
 
                                                             <div class="form-group">
                                                                 <label for="exampleDate">Date</label>
-                                                                <asp:TextBox ID="TextBox2" class="form-control" TextMode="Date" required="" runat="server"></asp:TextBox>
+                                                                <asp:TextBox ID="txtdate" class="form-control" TextMode="Date" required="" runat="server"></asp:TextBox>
                                                             </div>
     
+                                                            <div class="form-group">
+                                                                <asp:Label ID="lblinfo" runat="server" Text=""></asp:Label>
+                                                            </div>
 
+                                                            <div class="input-group mb-3 ">
+                                                                <asp:TextBox ID="txtReviewID" class="form-control" placeholder="Search" runat="server"></asp:TextBox>
+                                                                <div class="input-group-append">
+                                                                    <asp:Button ID="btnsearch"   class="btn btn-primary shadow-2 " formnovalidate="" runat="server" Text="Search" OnClick="btnsearch_Click" />
+                                                                </div>
+                                                            </div>
 
-                                                            <asp:Button ID="btnregister" class="btn btn-primary shadow-2 " runat="server" Text="Register" />
-                                                            <asp:Button ID="btnupdate" class="btn btn-success shadow-2 " runat="server" Text="Update" />
-                                                            <asp:Button ID="btndelete" class="btn btn-danger shadow-2 " formnovalidate="" runat="server" Text="Delete" />
+                                                            <div class="form-group pl-3">
+                                                                <asp:Button ID="btnregister" class="btn btn-primary shadow-2 " runat="server" Text="Register" OnClick="btnregister_Click" />
+                                                                <asp:Button ID="btnupdate" class="btn btn-success shadow-2 " runat="server" Text="Update" OnClick="btnupdate_Click" />
+                                                                <asp:Button ID="btndelete" class="btn btn-danger shadow-2 " formnovalidate="" runat="server" Text="Delete"  />
+                                                                <%--<asp:Button ID="btnclear" class="btn btn-warning shadow-2 " formnovalidate="" runat="server" Text="Clear" OnClick="btnclear_Click"/>--%>
+                                                            </div>
+
+                                                            <asp:GridView ID="GridView1" CssClass="table table-bordered table-condensed table-striped table-hover table-responsive table-sm  " runat="server" AutoGenerateColumns="False">
+                                                                <Columns>
+                                                                    <asp:BoundField DataField="ReviewID" HeaderText="Review ID" />
+                                                                    <asp:BoundField DataField="FullName" HeaderText="Full Name" />
+                                                                    <asp:BoundField DataField="EventTitle" HeaderText="Event Title" />
+                                                                    <asp:BoundField DataField="Comment" HeaderText="Comment" />
+                                                                    <asp:BoundField DataField="SubmissionDate" HeaderText="Submission Date" />
+                                                                </Columns>
+                                                            </asp:GridView>
+
+                                                            
                                                         </form>
 
                                                     </div>

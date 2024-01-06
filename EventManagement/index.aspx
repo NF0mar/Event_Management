@@ -78,6 +78,9 @@
                         <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
                             <a href="Orders.aspx" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Orders</span></a>
                         </li>
+                        <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
+                            <a href="Payments.aspx" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Payments</span></a>
+                        </li>
 
                         <li class="nav-item pcoded-menu-caption">
                             <label>Pages</label>
@@ -85,8 +88,8 @@
                         <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
                             <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span class="pcoded-mtext">Authentication</span></a>
                             <ul class="pcoded-submenu">
-                                <li class=""><a href="auth-signup.html" class="" target="_blank">Sign up</a></li>
-                                <li class=""><a href="auth-signin.html" class="" target="_blank">Sign in</a></li>
+                                <li class=""><a href="Signup.aspx" class="" target="_blank">Sign up</a></li>
+                                <li class=""><a href="Signin.aspx" class="" target="_blank">Sign in</a></li>
                             </ul>
                         </li>
                       </ul>

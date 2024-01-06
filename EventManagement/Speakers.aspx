@@ -78,6 +78,9 @@
                         <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
                             <a href="Orders.aspx" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Orders</span></a>
                         </li>
+                        <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
+                            <a href="Payments.aspx" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Payments</span></a>
+                        </li>
 
                         <li class="nav-item pcoded-menu-caption">
                             <label>Pages</label>
@@ -85,8 +88,8 @@
                         <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
                             <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span class="pcoded-mtext">Authentication</span></a>
                             <ul class="pcoded-submenu">
-                                <li class=""><a href="auth-signup.html" class="" target="_blank">Sign up</a></li>
-                                <li class=""><a href="auth-signin.html" class="" target="_blank">Sign in</a></li>
+                                <li class=""><a href="Signup.aspx" class="" target="_blank">Sign up</a></li>
+                                <li class=""><a href="Signin.aspx" class="" target="_blank">Sign in</a></li>
                             </ul>
                         </li>
                       </ul>
@@ -243,18 +246,35 @@
 
                                                 <div class="form-group">
                                                     <label for="exampleInputPassword1">Bio</label>
-                                                    <textarea class="form-control" id="txtbio" placeholder="Write your Bio ...." rows="3"></textarea>
+                                                    <textarea id="txtbio" class="form-control"  placeholder="Write your Bio ...." cols="20" rows="3" runat="server"></textarea>
+                                                    <%--<textarea class="form-control" id="txtbio" placeholder="Write your Bio ...." rows="3"></textarea>--%>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="exampleInputPassword1">Social Media Links</label>
-                                                    <textarea class="form-control" id="txtSML" placeholder="Links ....." rows="3"></textarea>
+                                                    <textarea class="form-control" id="txtsocialmedialinks" placeholder="Links ....." cols="20" rows="3" runat="server"></textarea>
+                                                </div>
+
+                                                <div class="form-group">
+                                                    <asp:Label ID="lblinfo" runat="server" Text=""></asp:Label>
                                                 </div>
                                                 
-                                                <asp:Button ID="btnregister" class="btn btn-primary shadow-2 " runat="server" Text="Register" />
-                                                <asp:Button ID="btnupdate" class="btn btn-success shadow-2 " runat="server" Text="Update" />
-                                                <asp:Button ID="btndelete" class="btn btn-danger shadow-2 " formnovalidate="" runat="server" Text="Delete" />
-                                            </form>
+                                                <div class="input-group mb-3 ">
+                                                    <asp:TextBox ID="txtSpeakerID" class="form-control" placeholder="Search" runat="server"></asp:TextBox>
+                                                    <div class="input-group-append">
+                                                        <asp:Button ID="btnsearch"   class="btn btn-primary shadow-2 " formnovalidate="" runat="server" Text="Search" OnClick="btnsearch_Click"/>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group pl-3">
+                                                    <asp:Button ID="btnregister" class="btn btn-primary shadow-2 " runat="server" Text="Register" OnClick="btnregister_Click" />
+                                                    <asp:Button ID="btnupdate" class="btn btn-success shadow-2 " runat="server" Text="Update" OnClick="btnupdate_Click" />
+                                                    <asp:Button ID="btndelete" class="btn btn-danger shadow-2 " formnovalidate="" runat="server" Text="Delete" />
+                                                </div>
+                                                <div class="form-group pl-3">
+                                                    <asp:GridView ID="GridView1" Width="100%"  CssClass="table  table-bordered table-condensed table-responsive-sm table-hover table-striped" runat="server" DataSourceID="SqlDataSource1"></asp:GridView>
+                                                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:eventManagement_dbConnectionString3 %>" ProviderName="<%$ ConnectionStrings:eventManagement_dbConnectionString3.ProviderName %>" SelectCommand="SELECT * FROM [Speakers]"></asp:SqlDataSource>
+                                                </div>
+                                           </form>
                                         </div>
                                         </div>
                                     </div>
@@ -265,8 +285,8 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
+    <%--</div>
+</div>--%>
         <!-- [ Main Content ] end -->
 
 

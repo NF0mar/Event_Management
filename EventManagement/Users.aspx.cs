@@ -33,6 +33,8 @@ namespace EventManagement
             cmd.ExecuteNonQuery();
             lblinfo.Text = "User is saved";
             conn.Close();
+
+            GridView1.DataBind();
         }
 
         protected void btnupdate_Click(object sender, EventArgs e)
@@ -50,6 +52,8 @@ namespace EventManagement
             cmd.ExecuteNonQuery();
             lblinfo.Text = "User has been updated";
             conn.Close();
+
+            GridView1.DataBind();
         }
 
         protected void btndelete_Click(object sender, EventArgs e)
@@ -60,6 +64,8 @@ namespace EventManagement
             cmd.ExecuteNonQuery();
             lblinfo.Text = "User is deleted";
             conn.Close();
+
+            GridView1.DataBind();
         }
 
         protected void btnsearch_Click(object sender, EventArgs e)

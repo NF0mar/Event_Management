@@ -78,6 +78,9 @@
                         <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
                             <a href="Orders.aspx" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Orders</span></a>
                         </li>
+                        <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
+                            <a href="Payments.aspx" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Payments</span></a>
+                        </li>
                 
                         <li class="nav-item pcoded-menu-caption">
                             <label>Pages</label>
@@ -291,7 +294,7 @@
                                                                 </asp:DropDownList>
                                                             </div>
 
-                                                            <div class="input-group mb-4">
+                                                            <div class="form-group">
                                                                 <asp:Label ID="lblinfo" runat="server" Text=""></asp:Label>
                                                             </div>
                                                         </div>
@@ -305,9 +308,25 @@
                                                     </div>
                                                     <div class="form-group pl-3">
                                                          <asp:Button ID="btnregister" class="btn btn-primary shadow-2 "  runat="server" Text="Register" OnClick="btnregister_Click" />
-                                                         <asp:Button ID="btnupdate" class="btn btn-success shadow-2 " runat="server" Text="Update" />
+                                                         <asp:Button ID="btnupdate" class="btn btn-success shadow-2 " runat="server" Text="Update" OnClick="btnupdate_Click" />
                                                          <asp:Button ID="btndelete" class="btn btn-danger shadow-2 " formnovalidate="" runat="server" Text="Delete"/>
                                                     </div>  
+
+
+                                                    <div class="form-group pl-3">
+                                                        <asp:GridView ID="GridView1" Width="100%" CssClass="table table-bordered table-condensed table-striped table-hover table-responsive table-sm  " runat="server" AutoGenerateColumns="False">
+                                                            <Columns>
+                                                                <asp:BoundField DataField="EventID" HeaderText="Event ID" />
+                                                                <asp:BoundField DataField="FullName" HeaderText="Full Name" />
+                                                                <asp:BoundField DataField="Description" HeaderText="Description" />
+                                                                <asp:BoundField DataField="Date" HeaderText="Date" />
+                                                                <asp:BoundField DataField="Time" HeaderText="Time" />
+                                                                <asp:BoundField DataField="Location" HeaderText="Location" />
+                                                                <asp:BoundField DataField="Capacity" HeaderText="Capacity" />
+                                                            </Columns>
+                                                        </asp:GridView>
+                                                    </div>
+                                           
                                                     </form>
                                                     
                                                 </div>

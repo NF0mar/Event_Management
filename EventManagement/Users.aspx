@@ -78,6 +78,9 @@
                         <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
                             <a href="Orders.aspx" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Orders</span></a>
                         </li>
+                        <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
+                            <a href="Payments.aspx" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Payments</span></a>
+                        </li>
                 
                         <li class="nav-item pcoded-menu-caption">
                             <label>Pages</label>
@@ -270,7 +273,7 @@
                                                     <label for="exampleDate">Date</label>
                                                     <asp:TextBox ID="txtdate" class="form-control" TextMode="Date" required="" runat="server"></asp:TextBox>
                                                 </div>
-                                                <div class="input-group mb-4">
+                                                <div class="form-group">
                                                     <asp:Label ID="lblinfo" runat="server" Text=""></asp:Label>
                                                 </div>
                                             </div>
