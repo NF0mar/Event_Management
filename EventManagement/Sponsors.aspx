@@ -279,11 +279,42 @@
                                                                 <label for="exampleDate">Contact Phone</label>
                                                                 <asp:TextBox ID="txtContactPhone" runat="server" CssClass="form-control" placeholder="Phone no..." ></asp:TextBox>
                                                             </div>
-                                                        <asp:Button ID="btnregister" class="btn btn-primary shadow-2 " runat="server" Text="Register" />
-                                                        <asp:Button ID="btnupdate" class="btn btn-success shadow-2 " runat="server" Text="Update" />
-                                                        <asp:Button ID="btndelete" class="btn btn-danger shadow-2 " formnovalidate="" runat="server" Text="Delete" />
-                                                        </form>
+
+                                                        <div class="form-group">
+                                                            <asp:Label ID="lblinfo" runat="server" Text=""></asp:Label>
+                                                        </div>
                                                     </div>
+
+                                                    <div class="input-group mb-3 pl-3 pr-3">
+                                                        <%--<asp:Label ID="Label2" runat="server" Text="Event Capacity:"></asp:Label>--%>
+                                                        <asp:TextBox ID="txtSponsorID" class="form-control" placeholder="Search" runat="server"></asp:TextBox>
+                                                        <div class="input-group-append">
+                                                            <asp:Button ID="btnsearch"   class="btn btn-primary shadow-2 " formnovalidate="" runat="server" Text="Search" OnClick="btnsearch_Click" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group pl-3">
+                                                        <asp:Button ID="btnregister" class="btn btn-primary shadow-2 " runat="server" Text="Register" OnClick="btnregister_Click" />
+                                                        <asp:Button ID="btnupdate" class="btn btn-success shadow-2 " runat="server" Text="Update" OnClick="btnupdate_Click" />
+                                                        <asp:Button ID="btndelete" class="btn btn-danger shadow-2 " formnovalidate="" runat="server" Text="Delete" OnClick="btndelete_Click" />
+                                                    </div>
+                                                        <div class="form-group pl-3 pr-3" style="max-width: 100%; overflow-x: auto;">
+                                                            <asp:GridView ID="GridView1" CssClass="table table-bordered table-condensed table-striped table-hover table-responsive table-sm  " runat="server" AutoGenerateColumns="False">
+                                                                <Columns>
+                                                                    <asp:BoundField DataField="SponsorID" HeaderText="Sponsor ID" />
+                                                                    <asp:BoundField DataField="EventTitle" HeaderText="Event Title" />
+                                                                    <asp:BoundField DataField="Name" HeaderText="Sponsor Name" />
+                                                                    <asp:BoundField DataField="LogoURL" HeaderText="Logo URL" />
+                                                                    <asp:BoundField DataField="WebsiteURL" HeaderText="Website URL" />
+                                                                    <asp:BoundField DataField="ContactName" HeaderText="Contact Name" />
+                                                                    <asp:BoundField DataField="ContactEmail" HeaderText="Contact Email" />
+                                                                    <asp:BoundField DataField="ContactPhone" HeaderText="Contact Phone" />
+                                                                </Columns>
+                                                            </asp:GridView>
+                                                        </div>
+
+                                                        </form>
+                                                    
                                                 </div>
                                             </div>
                                         </div>

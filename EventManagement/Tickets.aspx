@@ -254,7 +254,7 @@
 
                                                     <div class="form-group">
                                                         <label for="exampleSelectTicketType">Ticket Type</label>
-                                                        <asp:DropDownList ID="DropDownList1" class="form-control" runat="server">
+                                                        <asp:DropDownList ID="ddlTicketType" class="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlTicketType_SelectedIndexChanged">
                                                             <asp:ListItem Selected="True" >Select ticket type</asp:ListItem>
                                                             <asp:ListItem>General Admission</asp:ListItem>
                                                             <asp:ListItem>VIP Ticket</asp:ListItem>  
@@ -264,7 +264,7 @@
                                                     
 
                                                 
-                                                <asp:Button ID="btnregister" class="btn btn-primary shadow-2 " runat="server" Text="Register" />
+                                                <asp:Button ID="btnregister" class="btn btn-primary shadow-2 " runat="server" Text="Register" OnClick="btnregister_Click" />
                                                 <asp:Button ID="btnupdate" class="btn btn-success shadow-2 " runat="server" Text="Update" />
                                                 <asp:Button ID="btndelete" class="btn btn-danger shadow-2 " formnovalidate="" runat="server" Text="Delete" />
                                             
@@ -272,7 +272,7 @@
                                         <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Quantity</label>
-                                                    <asp:TextBox ID="txtQuantity" runat="server" class="form-control" TextMode="Number"></asp:TextBox>
+                                                    <asp:TextBox ID="txtQuantity" runat="server" class="form-control" AutoPostBack="true"  TextMode="Number" OnTextChanged="txtQuantity_TextChanged" ></asp:TextBox>
                                                     <asp:RangeValidator ID="RangeValidatorQuantity" runat="server" class="form-control"
                                                         ControlToValidate="txtQuantity" 
                                                         MinimumValue="1" MaximumValue="9999" Type="Integer" 
@@ -280,13 +280,18 @@
                                                 </div>
 
                                                 <div class="form-group">
-                                                    <asp:Label ID="Label1" runat="server">Price: </asp:Label>
+                                                    <label>Price</label>
                                                     <asp:Label ID="lblPrice" class="form-control" runat="server"></asp:Label>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <label>Remaining Tickets</label>
+                                                    <asp:Label ID="lblRemainingQuantity" class="form-control" runat="server"></asp:Label>
                                                 </div>
 
                                                 <div class="form-group">
                                                     <label for="exampleDate">Purchase date</label>
-                                                    <asp:TextBox ID="TextBox1" class="form-control" TextMode="Date" required="" runat="server"></asp:TextBox>
+                                                    <asp:TextBox ID="txtdate" class="form-control" TextMode="Date" required="" runat="server"></asp:TextBox>
                                                 </div>
                                             </form>
                                         </div>

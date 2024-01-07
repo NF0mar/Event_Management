@@ -42,13 +42,13 @@ namespace EventManagement
         protected global::System.Web.UI.WebControls.DropDownList ddltuserid;
 
         /// <summary>
-        /// DropDownList1 control.
+        /// ddlTicketType control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlTicketType;
 
         /// <summary>
         /// btnregister control.
@@ -96,15 +96,6 @@ namespace EventManagement
         protected global::System.Web.UI.WebControls.RangeValidator RangeValidatorQuantity;
 
         /// <summary>
-        /// Label1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
-
-        /// <summary>
         /// lblPrice control.
         /// </summary>
         /// <remarks>
@@ -114,12 +105,21 @@ namespace EventManagement
         protected global::System.Web.UI.WebControls.Label lblPrice;
 
         /// <summary>
-        /// TextBox1 control.
+        /// lblRemainingQuantity control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.Label lblRemainingQuantity;
+
+        /// <summary>
+        /// txtdate control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtdate;
     }
 }
