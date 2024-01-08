@@ -210,5 +210,17 @@ namespace EventManagement
 
             GridView1.DataBind();
         }
+
+        protected void btndelete_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            String del = "delete from Events where EventID  = '" + txtEventID.Text + "'";
+            SqlCommand cmd = new SqlCommand(del, conn);
+            cmd.ExecuteNonQuery();
+            lblinfo.Text = "Event is deleted";
+            conn.Close();
+
+            GridView1.DataBind();
+        }
     }
 }

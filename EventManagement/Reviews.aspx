@@ -277,7 +277,7 @@
                                                             <div class="form-group pl-3">
                                                                 <asp:Button ID="btnregister" class="btn btn-primary shadow-2 " runat="server" Text="Register" OnClick="btnregister_Click" />
                                                                 <asp:Button ID="btnupdate" class="btn btn-success shadow-2 " runat="server" Text="Update" OnClick="btnupdate_Click" />
-                                                                <asp:Button ID="btndelete" class="btn btn-danger shadow-2 " formnovalidate="" runat="server" Text="Delete"  />
+                                                                <asp:Button ID="btndelete" class="btn btn-danger shadow-2 " formnovalidate="" runat="server" Text="Delete" OnClick="btndelete_Click"  />
                                                                 <%--<asp:Button ID="btnclear" class="btn btn-warning shadow-2 " formnovalidate="" runat="server" Text="Clear" OnClick="btnclear_Click"/>--%>
                                                             </div>
 

@@ -263,6 +263,11 @@
                                                             <asp:Button ID="btnregister" class="btn btn-primary shadow-2 " runat="server" Text="Register" />
                                                             <asp:Button ID="btnupdate" class="btn btn-success shadow-2 " runat="server" Text="Update" />
                                                             <asp:Button ID="btndelete" class="btn btn-danger shadow-2 " formnovalidate="" runat="server" Text="Delete" />
+
+                                                            <asp:GridView ID="GridView1" runat="server" DataSourceID="SqlDataSource1"></asp:GridView>
+
+                                                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:eventManagement_dbConnectionString6 %>" ProviderName="<%$ ConnectionStrings:eventManagement_dbConnectionString6.ProviderName %>" SelectCommand="SELECT * FROM [Payments]"></asp:SqlDataSource>
+
                                                         </form>
 
                                                     </div>
