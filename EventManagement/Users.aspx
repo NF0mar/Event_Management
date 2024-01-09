@@ -291,7 +291,7 @@
                                              <asp:Button ID="btndelete" class="btn btn-danger shadow-2 " formnovalidate="" runat="server" Text="Delete" OnClick="btndelete_Click" />
                                          </div>
                                              <div class="form-group pl-3">                                                      
-                                        <asp:GridView ID="GridView1" runat="server" Width="100%" CssClass="table  table-bordered table-condensed table-responsive-sm table-hover table-striped" DataSourceID="SqlDataSource1"></asp:GridView>
+                                        <asp:GridView ID="GridView1" runat="server"  CssClass="table table-bordered table-condensed table-striped table-hover table-responsive table-sm  " DataSourceID="SqlDataSource1"></asp:GridView>
                                                  </div>
                                             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:eventManagement_dbConnectionString %>" ProviderName="<%$ ConnectionStrings:eventManagement_dbConnectionString.ProviderName %>" SelectCommand="SELECT * FROM [Users]"></asp:SqlDataSource>
 

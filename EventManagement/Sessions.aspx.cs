@@ -122,7 +122,6 @@ namespace EventManagement
             lblinfo.Text = "Session is Created";
             conn.Close();
 
-            GridView1.DataBind();
         }
 
         protected void btnupdate_Click(object sender, EventArgs e)
@@ -166,7 +165,6 @@ namespace EventManagement
                 lblinfo.Text = "Error: " + ex.Message;
             }
 
-            GridView1.DataBind();
         }
 
         protected void btnsearch_Click(object sender, EventArgs e)
@@ -219,7 +217,17 @@ namespace EventManagement
 
             }
 
-            GridView1.DataBind();
+            
+        }
+
+        protected void btndelete_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            String del = "delete from Sessions where SessionID  = '" + txtSessionID.Text + "'";
+            SqlCommand cmd = new SqlCommand(del, conn);
+            cmd.ExecuteNonQuery();
+            lblinfo.Text = "Session is deleted";
+            conn.Close();
         }
     }
 }

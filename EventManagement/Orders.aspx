@@ -256,10 +256,22 @@
                                                                 <asp:DropDownList ID="ddlPaymentID" runat="server" CssClass="form-control"></asp:DropDownList>
                                                             </div>
 
+                                                            <div class="form-group">
+                                                                <asp:Label ID="lblinfo" runat="server" Text=""></asp:Label>
+                                                            </div>
+
+
+                                                            <div class="input-group mb-3 ">
+                                                                <asp:TextBox ID="txtOrderID" class="form-control" placeholder="Search" runat="server"></asp:TextBox>
+                                                                <div class="input-group-append">
+                                                                    <asp:Button ID="btnsearch"   class="btn btn-primary shadow-2 " formnovalidate="" runat="server" Text="Search" />
+                                                                </div>
+                                                            </div>
+
 
                                                             <asp:Button ID="btnregister" class="btn btn-primary shadow-2 " runat="server" Text="Register" />
                                                             <asp:Button ID="btnupdate" class="btn btn-success shadow-2 " runat="server" Text="Update" />
-                                                            <asp:Button ID="btndelete" class="btn btn-danger shadow-2 " formnovalidate="" runat="server" Text="Delete" />
+                                                            <asp:Button ID="btndelete" class="btn btn-danger shadow-2 " formnovalidate="" runat="server" Text="Delete" OnClick="btndelete_Click" />
                                                         </form>
 
                                                     </div>

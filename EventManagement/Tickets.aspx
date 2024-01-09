@@ -264,9 +264,7 @@
                                                     
 
                                                 
-                                                <asp:Button ID="btnregister" class="btn btn-primary shadow-2 " runat="server" Text="Register" OnClick="btnregister_Click" />
-                                                <asp:Button ID="btnupdate" class="btn btn-success shadow-2 " runat="server" Text="Update" />
-                                                <asp:Button ID="btndelete" class="btn btn-danger shadow-2 " formnovalidate="" runat="server" Text="Delete" OnClick="btndelete_Click" />
+                                                
                                             
                                         </div>
                                         <div class="col-md-6">
@@ -293,8 +291,27 @@
                                                     <label for="exampleDate">Purchase date</label>
                                                     <asp:TextBox ID="txtdate" class="form-control" TextMode="Date" required="" runat="server"></asp:TextBox>
                                                 </div>
-                                            </form>
+                                            </div>
+
+                                        <div class="form-group">
+                                            <asp:Label ID="lblinfo" runat="server" Text=""></asp:Label>
                                         </div>
+
+
+                                        <div class="input-group mb-3 ">
+                                            <asp:TextBox ID="txtTicketID" class="form-control" placeholder="Search" runat="server"></asp:TextBox>
+                                            <div class="input-group-append">
+                                                <asp:Button ID="btnsearch"   class="btn btn-primary shadow-2 " formnovalidate="" runat="server" Text="Search" />
+                                            </div>
+                                        </div>
+
+                                        <asp:Button ID="btnregister" class="btn btn-primary shadow-2 " runat="server" Text="Register" OnClick="btnregister_Click" />
+                                        <asp:Button ID="btnupdate" class="btn btn-success shadow-2 " runat="server" Text="Update" />
+                                        <asp:Button ID="btndelete" class="btn btn-danger shadow-2 " formnovalidate="" runat="server" Text="Delete" OnClick="btndelete_Click" />
+
+
+                                        </form>
+                                        
                                         </div>
                                     </div>
                                 </div>

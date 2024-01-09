@@ -36,5 +36,15 @@ namespace EventManagement
                 ddlOrderID.Items.Insert(0, new ListItem("Select OrderID", ""));
             }
         }
+
+        protected void btndelete_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            String del = "delete from Payments where PaymentID  = '" + txtPaymentID.Text + "'";
+            SqlCommand cmd = new SqlCommand(del, conn);
+            cmd.ExecuteNonQuery();
+            lblinfo.Text = "payment is deleted";
+            conn.Close();
+        }
     }
 }

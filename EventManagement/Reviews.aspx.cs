@@ -213,7 +213,6 @@ namespace EventManagement
                 lblinfo.Text = "Error: " + ex.Message;
             }
 
-            GridView1.DataBind();
         }
 
         protected void btndelete_Click(object sender, EventArgs e)
@@ -225,7 +224,6 @@ namespace EventManagement
             lblinfo.Text = "Review Comment is deleted";
             conn.Close();
 
-            GridView1.DataBind();
         }
     }
 }

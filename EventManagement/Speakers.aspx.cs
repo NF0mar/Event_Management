@@ -135,5 +135,15 @@ namespace EventManagement
 
             }
         }
+
+        protected void btndelete_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            String del = "delete from Speakers where SpeakerID  = '" + txtSpeakerID.Text + "'";
+            SqlCommand cmd = new SqlCommand(del, conn);
+            cmd.ExecuteNonQuery();
+            lblinfo.Text = "Speaker is deleted";
+            conn.Close();
+        }
     }
 }

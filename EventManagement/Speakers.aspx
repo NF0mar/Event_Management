@@ -268,7 +268,7 @@
                                                 <div class="form-group pl-3">
                                                     <asp:Button ID="btnregister" class="btn btn-primary shadow-2 " runat="server" Text="Register" OnClick="btnregister_Click" />
                                                     <asp:Button ID="btnupdate" class="btn btn-success shadow-2 " runat="server" Text="Update" OnClick="btnupdate_Click" />
-                                                    <asp:Button ID="btndelete" class="btn btn-danger shadow-2 " formnovalidate="" runat="server" Text="Delete" />
+                                                    <asp:Button ID="btndelete" class="btn btn-danger shadow-2 " formnovalidate="" runat="server" Text="Delete" OnClick="btndelete_Click" />
                                                 </div>
                                                 <div class="form-group pl-3">
                                                     <asp:GridView ID="GridView1" Width="100%"  CssClass="table  table-bordered table-condensed table-responsive-sm table-hover table-striped" runat="server" DataSourceID="SqlDataSource1"></asp:GridView>
