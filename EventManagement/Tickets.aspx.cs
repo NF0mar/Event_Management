@@ -121,19 +121,7 @@ namespace EventManagement
             decimal price = CalculatePrice(ticketType, quantity);
             lblPrice.Text = price.ToString("C", new CultureInfo("en-US"));
 
-            //try
-            //{
-            //    string ticketType = ddlTicketType.SelectedValue;
-            //    int quantity = Convert.ToInt32(txtQuantity.Text);
-            //    decimal price = CalculatePrice(ticketType, quantity);
-            //    //lblPrice.Text = price.ToString("C"); // Format as currency
-            //    lblPrice.Text = price.ToString("C", new CultureInfo("en-US"));
-
-            //}
-            //catch
-            //{
-            //    lblPrice.Text = "Invalid input";
-            //}
+            
         }
 
         protected void btndelete_Click(object sender, EventArgs e)
