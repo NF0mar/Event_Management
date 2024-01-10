@@ -64,8 +64,11 @@ namespace EventManagement
                     conn.Close();
                 }
 
-        // Add an initial item (optional)
-        ddlorganizer.Items.Insert(0, new ListItem("Select Organizer", ""));
+                // Add an initial item (optional)
+                ddlorganizer.Items.Insert(0, new ListItem("Select Organizer", ""));
+                ddlorganizer.Items[0].Attributes["disabled"] = "disabled";
+                ddlorganizer.Items[0].Attributes["selected"] = "selected";
+
             }
 
         }

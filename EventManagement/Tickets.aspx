@@ -255,18 +255,17 @@
                                                     <div class="form-group">
                                                         <label for="exampleSelectTicketType">Ticket Type</label>
                                                         <asp:DropDownList ID="ddlTicketType" class="form-control" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlTicketType_SelectedIndexChanged">
-                                                            <asp:ListItem Selected="True" >Select ticket type</asp:ListItem>
+                                                            <asp:ListItem Selected="True" Value="" disabled="disabled" >Select ticket type</asp:ListItem>
                                                             <asp:ListItem>General Admission</asp:ListItem>
                                                             <asp:ListItem>VIP Ticket</asp:ListItem>  
                                                         </asp:DropDownList>
                                                     </div>
 
-                                                    
+                                                
 
-                                                
-                                                
-                                            
-                                        </div>
+                                                </div>
+
+
                                         <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label>Quantity</label>
@@ -282,20 +281,39 @@
                                                     <asp:Label ID="lblPrice" class="form-control" runat="server"></asp:Label>
                                                 </div>
                                                 
-                                                <div class="form-group">
+                                                <%--<div class="form-group">
                                                     <label>Remaining Tickets</label>
                                                     <asp:Label ID="lblRemainingQuantity" class="form-control" runat="server"></asp:Label>
-                                                </div>
+                                                </div>--%>
 
                                                 <div class="form-group">
                                                     <label for="exampleDate">Purchase date</label>
                                                     <asp:TextBox ID="txtdate" class="form-control" TextMode="Date" required="" runat="server"></asp:TextBox>
                                                 </div>
+                                                <div class="form-group">
+                                                    <asp:Label ID="lblinfo" runat="server" Text=""></asp:Label>
+                                                </div>
+
+                                            <%--<div class="form-group">
+                                                <label for="txtPrice">Manul input Price</label>
+                                                <asp:TextBox ID="txtPrice" runat="server" CssClass="form-control"></asp:TextBox>
                                             </div>
 
-                                        <div class="form-group">
-                                            <asp:Label ID="lblinfo" runat="server" Text=""></asp:Label>
+                                        
+                                            <div class="form-group">
+                                            <label for="txtNewQuantity">New Quantity</label>
+                                            <asp:TextBox ID="txtNewQuantity" runat="server" CssClass="form-control"></asp:TextBox>
                                         </div>
+
+                                            <div class="form-group">
+                                                <label>Remaining Quantity</label>
+                                                <asp:Label ID="lblRemainingQuantity" runat="server" CssClass="form-control"></asp:Label>
+                                            </div>--%>
+
+
+                                            </div>
+
+                                        
 
 
                                         <div class="input-group mb-3 ">

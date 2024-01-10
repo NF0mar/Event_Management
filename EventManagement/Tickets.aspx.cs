@@ -41,6 +41,8 @@ namespace EventManagement
 
                 // Add an initial item (optional)
                 ddlteventid.Items.Insert(0, new ListItem("Select Event", ""));
+                ddlteventid.Items[0].Attributes["disabled"] = "disabled";
+                ddlteventid.Items[0].Attributes["selected"] = "selected";
             }
 
             if (!IsPostBack)
@@ -64,6 +66,8 @@ namespace EventManagement
 
                 // Add an initial item (optional)
                 ddltuserid.Items.Insert(0, new ListItem("Select User", ""));
+                ddltuserid.Items[0].Attributes["disabled"] = "disabled";
+                ddltuserid.Items[0].Attributes["selected"] = "selected";
             }
 
             if (!IsPostBack)
@@ -76,19 +80,26 @@ namespace EventManagement
 
         protected void btnregister_Click(object sender, EventArgs e)
         {
-            //string query = "INSERT INTO Tickets (EventID, UserID, Type, Quantity, Price, PurchaseDate) VALUES (@EventID, @UserID, @Type, @Quantity, @Price, @PurchaseDate)";
-            //using (SqlCommand cmd = new SqlCommand(query, conn))
-            //{
-            //    cmd.Parameters.AddWithValue("@EventID", ddlteventid.SelectedValue);
-            //    cmd.Parameters.AddWithValue("@UserID", ddltuserid.SelectedValue);
-            //    cmd.Parameters.AddWithValue("@Type", ddlTicketType.SelectedValue);
-            //    cmd.Parameters.AddWithValue("@Quantity", Convert.ToInt32(txtQuantity.Text));
-            //    cmd.Parameters.AddWithValue("@Price", CalculatePrice()); // You need to implement CalculatePrice
-            //    cmd.Parameters.AddWithValue("@PurchaseDate", Convert.ToDateTime(TextBox1.Text));
+            string ticketType = ddlTicketType.SelectedValue; // Get the selected ticket type
+            int quantity = Convert.ToInt32(txtQuantity.Text); // Get the entered quantity
 
-            //    conn.Open();
-            //    cmd.ExecuteNonQuery();
-            //}
+            decimal price = CalculatePrice(ticketType, quantity); // Calculate the price with correct parameters
+
+            string query = "INSERT INTO Tickets (EventID, UserID, Type, Quantity, Price, PurchaseDate) VALUES (@EventID, @UserID, @Type, @Quantity, @Price, @PurchaseDate)";
+            using (SqlCommand cmd = new SqlCommand(query, conn))
+            {
+                cmd.Parameters.AddWithValue("@EventID", ddlteventid.SelectedValue);
+                cmd.Parameters.AddWithValue("@UserID", ddltuserid.SelectedValue);
+                cmd.Parameters.AddWithValue("@Type", ticketType);
+                cmd.Parameters.AddWithValue("@Quantity", quantity);
+                cmd.Parameters.AddWithValue("@Price", price); // Use the calculated price
+                cmd.Parameters.AddWithValue("@PurchaseDate", Convert.ToDateTime(txtdate.Text));
+
+                conn.Open(); // Open the connection
+                cmd.ExecuteNonQuery(); // Execute the INSERT query
+                lblinfo.Text = "Ticket is purcashed";
+                conn.Close(); // Close the connection
+            }
         }
 
         protected void ddlTicketType_SelectedIndexChanged(object sender, EventArgs e)
@@ -134,5 +145,7 @@ namespace EventManagement
             conn.Close();
 
         }
+
+
     }
 }

@@ -255,6 +255,7 @@
                                                             <div class="form-group">
                                                             <asp:Label ID="EventTimeLabel" runat="server" Text="Event Time:"></asp:Label>
                                                                 <asp:DropDownList ID="ddlEventTime" class="form-control" runat="server">
+                                                                    <asp:ListItem Selected="True" Value="" disabled="disabled">select Event Time</asp:ListItem>
                                                                     <asp:ListItem Value="09:00">9:00 AM</asp:ListItem>
                                                                     <asp:ListItem Value="10:00">10:00 AM</asp:ListItem>
                                                                     <asp:ListItem Value="10:00">11:00 AM</asp:ListItem>
