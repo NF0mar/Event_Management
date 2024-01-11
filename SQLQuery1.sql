@@ -1,0 +1,10 @@
+SELECT TOP (1000) [TicketID]
+      ,[EventID]
+      ,[UserID]
+      ,[Type]
+      ,[Quantity]
+      ,[Price]
+      ,[PurchaseDate]
+      ,[Status]
+  FROM [eventManagement_db].[dbo].[Tickets]
+	
