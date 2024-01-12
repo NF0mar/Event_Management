@@ -319,12 +319,12 @@
                                         <div class="input-group mb-3 ">
                                             <asp:TextBox ID="txtTicketID" class="form-control" placeholder="Search" runat="server"></asp:TextBox>
                                             <div class="input-group-append">
-                                                <asp:Button ID="btnsearch"   class="btn btn-primary shadow-2 " formnovalidate="" runat="server" Text="Search" />
+                                                <asp:Button ID="btnsearch"   class="btn btn-primary shadow-2 " formnovalidate="" runat="server" Text="Search" OnClick="btnsearch_Click" />
                                             </div>
                                         </div>
 
                                         <asp:Button ID="btnregister" class="btn btn-primary shadow-2 " runat="server" Text="Register" OnClick="btnregister_Click" />
-                                        <asp:Button ID="btnupdate" class="btn btn-success shadow-2 " runat="server" Text="Update" />
+                                        <asp:Button ID="btnupdate" class="btn btn-success shadow-2 " runat="server" Text="Update" OnClick="btnupdate_Click" />
                                         <asp:Button ID="btndelete" class="btn btn-danger shadow-2 " formnovalidate="" runat="server" Text="Delete" OnClick="btndelete_Click" />
 
 

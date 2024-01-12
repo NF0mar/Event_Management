@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Globalization;
+using System.Diagnostics;
 
 namespace EventManagement
 {
@@ -146,6 +147,97 @@ namespace EventManagement
 
         }
 
+        protected void btnsearch_Click(object sender, EventArgs e)
+        {
+            string ticketID = txtTicketID.Text.Trim();
 
+            if (!string.IsNullOrEmpty(ticketID))
+            {
+                try
+                {
+                    conn.Open();
+                    string sqlquery = "SELECT * FROM Tickets WHERE TicketID = @TicketID";
+                    SqlCommand cmd = new SqlCommand(sqlquery, conn);
+                    cmd.Parameters.AddWithValue("@ticketID", ticketID);
+
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        // Populate the form fields with the retrieved data
+                        ddlteventid.SelectedValue = reader["EventID"].ToString();
+                        ddltuserid.SelectedValue = reader["UserID"].ToString();
+                        ddlTicketType.SelectedValue = reader["Type"].ToString();
+                        txtQuantity.Text = reader["Quantity"].ToString();
+                        lblPrice.Text = reader["Price"].ToString();
+                        txtdate.Text = reader["PurchaseDate"].ToString();
+
+                        lblinfo.Text = "Ticket info found and form filled.";
+
+                    }
+                    else
+                    {
+                        lblinfo.Text = "Ticket info not found";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    lblinfo.Text = "Error: " + ex.Message;
+                }
+                finally
+                {
+                    conn.Close();
+                }
+
+            }
+            else
+            {
+                lblinfo.Text = "Please enter a valid Ticket ID.";
+
+
+            }
+        }
+
+        protected void btnupdate_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Ensure you have a valid Ticket ID from txtTicketID TextBox
+                if (int.TryParse(txtTicketID.Text, out int ticketID))
+                {
+                    conn.Open();
+                    string sqlquery = "UPDATE Tickets SET EventID = @EventID, UserID = @UserID, Type = @Type, Quantity = @Quantity, Price = @Price, PurchaseDate = @PurchaseDate WHERE TicketID = @TicketID";
+                    SqlCommand cmd = new SqlCommand(sqlquery, conn);
+                    cmd.Parameters.AddWithValue("@TicketID", ticketID);
+                    cmd.Parameters.AddWithValue("@EventID", ddlteventid.SelectedValue);
+                    cmd.Parameters.AddWithValue("@UserID", ddltuserid.SelectedValue);
+                    cmd.Parameters.AddWithValue("@Type", ddlTicketType.SelectedValue);
+                    cmd.Parameters.AddWithValue("@Quantity", txtQuantity.Text);
+                    cmd.Parameters.AddWithValue("@Price", lblPrice.Text);
+                    cmd.Parameters.AddWithValue("@PurchaseDate", txtdate.Text);
+
+                    int rowsAffected = cmd.ExecuteNonQuery();
+
+                    if (rowsAffected > 0)
+                    {
+                        lblinfo.Text = "Ticket updated successfully";
+                    }
+                    else
+                    {
+                        lblinfo.Text = "Ticket info not found or update failed";
+                    }
+
+                    conn.Close();
+                }
+                else
+                {
+                    lblinfo.Text = "Invalid Ticket ID";
+                }
+            }
+            catch (Exception ex)
+            {
+                lblinfo.Text = "Error: " + ex.Message;
+            }
+        }
     }
 }
