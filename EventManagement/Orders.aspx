@@ -88,8 +88,8 @@
                         <li data-username="Authentication Sign up Sign in reset password Change password Personal information profile settings map form subscribe" class="nav-item pcoded-hasmenu">
                             <a href="javascript:" class="nav-link "><span class="pcoded-micon"><i class="feather icon-lock"></i></span><span class="pcoded-mtext">Authentication</span></a>
                             <ul class="pcoded-submenu">
-                                <li class=""><a href="auth-signup.html" class="" target="_blank">Sign up</a></li>
-                                <li class=""><a href="auth-signin.html" class="" target="_blank">Sign in</a></li>
+                                <li class=""><a href="auth-signup.aspx" class="" target="_blank">Sign up</a></li>
+                                <li class=""><a href="auth-signin.aspx" class="" target="_blank">Sign in</a></li>
                             </ul>
                         </li>
                       </ul>
@@ -243,7 +243,7 @@
 
                                                             <div class="form-group">
                                                                 <label for="exampleSelectUserType">Name</label>
-                                                                <asp:DropDownList ID="ddlUserID" runat="server" CssClass="form-control"></asp:DropDownList>
+                                                                <asp:DropDownList ID="ddlUserID" runat="server" CssClass="form-control" OnSelectedIndexChanged="ddlUserID_SelectedIndexChanged"></asp:DropDownList>
                                                             </div>
                                                                 
                                                             <div class="form-group">
@@ -264,13 +264,13 @@
                                                             <div class="input-group mb-3 ">
                                                                 <asp:TextBox ID="txtOrderID" class="form-control" placeholder="Search" runat="server"></asp:TextBox>
                                                                 <div class="input-group-append">
-                                                                    <asp:Button ID="btnsearch"   class="btn btn-primary shadow-2 " formnovalidate="" runat="server" Text="Search" />
+                                                                    <asp:Button ID="btnsearch"   class="btn btn-primary shadow-2 " formnovalidate="" runat="server" Text="Search" OnClick="btnsearch_Click" />
                                                                 </div>
                                                             </div>
 
 
-                                                            <asp:Button ID="btnregister" class="btn btn-primary shadow-2 " runat="server" Text="Register" />
-                                                            <asp:Button ID="btnupdate" class="btn btn-success shadow-2 " runat="server" Text="Update" />
+                                                            <asp:Button ID="btnregister" class="btn btn-primary shadow-2 " runat="server" Text="Register" OnClick="btnregister_Click" />
+                                                            <asp:Button ID="btnupdate" class="btn btn-success shadow-2 " runat="server" Text="Update" OnClick="btnupdate_Click" />
                                                             <asp:Button ID="btndelete" class="btn btn-danger shadow-2 " formnovalidate="" runat="server" Text="Delete" OnClick="btndelete_Click" />
                                                         </form>
 
