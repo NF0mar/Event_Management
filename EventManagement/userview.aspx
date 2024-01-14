@@ -1,4 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Users.aspx.cs" Inherits="EventManagement.Users" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="userview.aspx.cs" Inherits="EventManagement.userview" %>
+
+    
 
 <!DOCTYPE html>
 
@@ -56,9 +58,6 @@
                         </li>
                         <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
                             <a href="users.aspx" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">User Registration</span></a>
-                        </li>
-                        <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
-                            <a href="userview.aspx" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">User veiw </span></a>
                         </li>
                         <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
                             <a href="Events.aspx" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Events</span></a>
@@ -240,63 +239,23 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-6">
+                                            
                                             <form id="form1" runat="server">
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">Full Name</label>
-                                                    <asp:TextBox ID="txtfullname" class="form-control" placeholder="FullName" required="" runat="server"></asp:TextBox>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">Email address</label>
-                                                    <asp:TextBox ID="txtemail" class="form-control" TextMode="Email" placeholder="Enter email" required="" runat="server"></asp:TextBox>
-                                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="exampleInputPassword1">Password</label>
-                                                    <asp:TextBox ID="txtpassword" class="form-control" TextMode="Password" placeholder="Password" required="" runat="server"></asp:TextBox>
-                                                </div>
-                                                
-                                                
-                                        </div>
-                                        <div class="col-md-6">
-                                                <div class="form-group">
-                                                    <label for="exampleSelectUserType">Select User Type</label>
-                                                    <%--<asp:DropDownList ID="ddlutype" class="form-control" required="" runat="server">
-                                                        <asp:ListItem Selected="True" Enabled="False" Value="">&nbsp;User type</asp:ListItem>
-                                                        <asp:ListItem>Admin</asp:ListItem>
-                                                        <asp:ListItem>User</asp:ListItem>
-                                                    </asp:DropDownList>--%>
-                                                    <asp:DropDownList ID="ddlutype" class="form-control" required="" runat="server">
-                                                        <asp:ListItem Text="User type" Selected="True" Value="" disabled="disabled"></asp:ListItem>
-                                                        <asp:ListItem Text="Admin" Value="Admin"></asp:ListItem>
-                                                        <asp:ListItem Text="User" Value="User"></asp:ListItem>
-                                                    </asp:DropDownList>
+                                                <asp:GridView ID="fariin" runat="server" AutoGenerateColumns="False" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting">
+                                                <Columns>
+                                                    <asp:BoundField DataField="UserID" HeaderText="ID" />
+                                                    <asp:BoundField DataField="fullname" HeaderText="Full Name" />
+                                                    <asp:BoundField DataField="Email" HeaderText="Email" />
+                                                    <asp:BoundField DataField="Password" HeaderText="Password" />
+                                                    <asp:BoundField DataField="UserType" HeaderText="UserType" />
+                                                    <asp:BoundField DataField="RegistrationDate" HeaderText="Date" />
+                                                </Columns>
+                                            </asp:GridView>
 
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="exampleDate">Date</label>
-                                                    <asp:TextBox ID="txtdate" class="form-control" TextMode="Date" required="" runat="server"></asp:TextBox>
-                                                </div>
-                                                <div class="form-group">
-                                                    <asp:Label ID="lblinfo" runat="server" Text=""></asp:Label>
-                                                </div>
-                                            </div>
-
-                                        <div class="input-group mb-3 pr-3 pl-3">
-                                            <asp:TextBox ID="txtid" class="form-control" placeholder="Search" runat="server"></asp:TextBox>
-                                            <div class="input-group-append">
-                                                <asp:Button ID="btnsearch" class="btn btn-primary shadow-2 " formnovalidate="" runat="server" Text="Search" OnClick="btnsearch_Click"/>
-                                            </div>
-
-                                        </div>
-                                         <div class="form-group pl-3">
-                                             <asp:Button ID="btnregister" class="btn btn-primary shadow-2 " runat="server" Text="Register" OnClick="btnregister_Click" />
-                                             <asp:Button ID="btnupdate" class="btn btn-success shadow-2 " runat="server" Text="Update" OnClick="btnupdate_Click" />
-                                             <asp:Button ID="btndelete" class="btn btn-danger shadow-2 " formnovalidate="" runat="server" Text="Delete" OnClick="btndelete_Click" />
-                                         </div>
-                                             
                                             </form>
-                                        
+                                            
                                         </div>
+
                                     </div>
                                 </div>
                             </div>

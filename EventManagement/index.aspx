@@ -57,6 +57,7 @@
                         <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
                             <a href="users.aspx" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">User Registration</span></a>
                         </li>
+                        
                         <li data-username="form elements advance componant validation masking wizard picker select" class="nav-item">
                             <a href="Events.aspx" class="nav-link "><span class="pcoded-micon"><i class="feather icon-file-text"></i></span><span class="pcoded-mtext">Events</span></a>
                         </li>
