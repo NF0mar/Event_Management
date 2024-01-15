@@ -153,7 +153,6 @@
     <Content Include="Sponsors.aspx" />
     <Content Include="Tickets.aspx" />
     <Content Include="Users.aspx" />
-    <Content Include="userview.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -248,13 +247,6 @@
     </Compile>
     <Compile Include="Users.aspx.designer.cs">
       <DependentUpon>Users.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="userview.aspx.cs">
-      <DependentUpon>userview.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="userview.aspx.designer.cs">
-      <DependentUpon>userview.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
